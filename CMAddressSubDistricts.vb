@@ -131,10 +131,10 @@ Public Class CMAddressSubDistricts
                         row.SubdistrictsEnglish = rd.GetString(rd.GetOrdinal("SubdistrictsEnglish")).ToString()
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("Latitude"))) = False Then
-                        row.Latitude = rd.GetDecimal(rd.GetOrdinal("Latitude"))
+                        row.Latitude = CInt(rd.GetDecimal(rd.GetOrdinal("Latitude")))
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("Longitude"))) = False Then
-                        row.Longitude = rd.GetDecimal(rd.GetOrdinal("Longitude"))
+                        row.Longitude = CInt(rd.GetDecimal(rd.GetOrdinal("Longitude")))
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("DistrictId"))) = False Then
                         row.DistrictId = rd.GetInt32(rd.GetOrdinal("DistrictId"))

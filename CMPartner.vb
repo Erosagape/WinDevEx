@@ -1,6 +1,23 @@
-﻿Imports System.Data
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Public Class CMPartner
+    Private m_PARTNER_ADDRESS As CMPartnerAddress
+    Public Property PARTNER_ADDRESS As CMPartnerAddress
+        Get
+            Return m_PARTNER_ADDRESS
+        End Get
+        Set(value As CMPartnerAddress)
+            m_PARTNER_ADDRESS = value
+        End Set
+    End Property
+    Private m_PARTNER_ATTACHMENT As CMPartnerAttachment
+    Public Property PARTNER_ATTACHMENT As CMPartnerAttachment
+        Get
+            Return m_PARTNER_ATTACHMENT
+        End Get
+        Set(value As CMPartnerAttachment)
+            m_PARTNER_ATTACHMENT = value
+        End Set
+    End Property
     Private m_ConnStr As String
     Public Sub New(pConnStr As String)
         m_ConnStr = pConnStr
@@ -339,13 +356,91 @@ Public Class CMPartner
             m_PARTNER_FLG = value
         End Set
     End Property
-    Public Function SaveData(pSQLWhere As String) As Boolean
+    Private m_PARTNER_COUNTRY_ID As Integer
+    Public Property PARTNER_COUNTRY_ID As Integer
+        Get
+            Return m_PARTNER_COUNTRY_ID
+        End Get
+        Set(value As Integer)
+            m_PARTNER_COUNTRY_ID = value
+        End Set
+    End Property
+    Private m_PARTNER_CURRATE_ID As Integer
+    Public Property PARTNER_CURRATE_ID As Integer
+        Get
+            Return m_PARTNER_CURRATE_ID
+        End Get
+        Set(value As Integer)
+            m_PARTNER_CURRATE_ID = value
+        End Set
+    End Property
+    Private m_PARTNER_PAYTYPE_ID As Integer
+    Public Property PARTNER_PAYTYPE_ID As Integer
+        Get
+            Return m_PARTNER_PAYTYPE_ID
+        End Get
+        Set(value As Integer)
+            m_PARTNER_PAYTYPE_ID = value
+        End Set
+    End Property
+    Private m_PARTNER_CREDIT_DAYS As Integer
+    Public Property PARTNER_CREDIT_DAYS As Integer
+        Get
+            Return m_PARTNER_CREDIT_DAYS
+        End Get
+        Set(value As Integer)
+            m_PARTNER_CREDIT_DAYS = value
+        End Set
+    End Property
+    Private m_PARTNER_URL As String
+    Public Property PARTNER_URL As String
+        Get
+            Return m_PARTNER_URL
+        End Get
+        Set(value As String)
+            m_PARTNER_URL = value
+        End Set
+    End Property
+    Private m_PARTNER_EMAIL As String
+    Public Property PARTNER_EMAIL As String
+        Get
+            Return m_PARTNER_EMAIL
+        End Get
+        Set(value As String)
+            m_PARTNER_EMAIL = value
+        End Set
+    End Property
+    Public Function AddNew(Optional pRunCount As Integer = 4, Optional pRunning As String = "") As Integer
+        Dim pReturn As Integer = 0
+        Using cn As New SqlConnection(m_ConnStr)
+            Try
+                cn.Open()
+                Dim pFormat As String = m_PARTNER_TYPE_ID & m_PARTNER_BUSINESS_TYPE_ID & pRunning & StrDup(pRunCount, "_")
+                Dim rd As SqlDataReader = New SqlCommand("SELECT MAX(PARTNER_ID) as t FROM tbl_partner WHERE PARTNER_ID Like '" & pFormat & "%'", cn).ExecuteReader()
+                If rd.HasRows Then
+                    rd.Read()
+                    pReturn = CInt(rd.GetInt64(0)) + 1
+                Else
+                    pReturn = CInt(m_PARTNER_TYPE_ID & m_PARTNER_BUSINESS_TYPE_ID & pRunning & String.Format(StrDup(pRunCount, "0"), 1))
+                End If
+                rd.Close()
+                If pReturn > 0 Then
+                    If GetData(" WHERE PARTNER_ID=" & pReturn).Count() = 0 Then
+                        m_PARTNER_ID = pReturn
+                    End If
+                End If
+            Catch ex As Exception
+
+            End Try
+        End Using
+        Return pReturn
+    End Function
+    Public Function SaveData() As Boolean
         Dim bComplete As Boolean = False
         Using cn As New SqlConnection(m_ConnStr)
             Try
                 cn.Open()
-
-                Using da As New SqlDataAdapter("SELECT * FROM tbl_Partner" & pSQLWhere, cn)
+                Using da As New SqlDataAdapter("SELECT * FROM tbl_partner WHERE PARTNER_ID=" & m_PARTNER_ID, cn)
                     Using cb As New SqlCommandBuilder(da)
                         Using dt As New DataTable
                             da.Fill(dt)
@@ -388,6 +483,12 @@ Public Class CMPartner
                             dr("UPDATED_BY") = Me.UPDATED_BY
                             dr("UPDATED_DATE") = Me.UPDATED_DATE
                             dr("PARTNER_FLG") = Me.PARTNER_FLG
+                            dr("PARTNER_COUNTRY_ID") = Me.PARTNER_COUNTRY_ID
+                            dr("PARTNER_CURRATE_ID") = Me.PARTNER_CURRATE_ID
+                            dr("PARTNER_PAYTYPE_ID") = Me.PARTNER_PAYTYPE_ID
+                            dr("PARTNER_CREDIT_DAYS") = Me.PARTNER_CREDIT_DAYS
+                            dr("PARTNER_URL") = Me.PARTNER_URL
+                            dr("PARTNER_EMAIL") = Me.PARTNER_EMAIL
                             If dr.RowState = DataRowState.Detached Then dt.Rows.Add(dr)
                             da.Update(dt)
                             bComplete = True
@@ -405,7 +506,7 @@ Public Class CMPartner
             Dim row As CMPartner
             Try
                 cn.Open()
-                Dim rd As SqlDataReader = New SqlCommand("SELECT * FROM tbl_Partner" & pSQLWhere, cn).ExecuteReader()
+                Dim rd As SqlDataReader = New SqlCommand("SELECT * FROM tbl_partner" & pSQLWhere, cn).ExecuteReader()
                 While rd.Read()
                     row = New CMPartner(m_ConnStr)
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_ID"))) = False Then
@@ -518,6 +619,24 @@ Public Class CMPartner
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_FLG"))) = False Then
                         row.PARTNER_FLG = rd.GetInt32(rd.GetOrdinal("PARTNER_FLG"))
+                    End If
+                    If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_COUNTRY_ID"))) = False Then
+                        row.PARTNER_COUNTRY_ID = rd.GetInt32(rd.GetOrdinal("PARTNER_COUNTRY_ID"))
+                    End If
+                    If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_CURRATE_ID"))) = False Then
+                        row.PARTNER_CURRATE_ID = rd.GetInt32(rd.GetOrdinal("PARTNER_CURRATE_ID"))
+                    End If
+                    If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_PAYTYPE_ID"))) = False Then
+                        row.PARTNER_PAYTYPE_ID = rd.GetInt32(rd.GetOrdinal("PARTNER_PAYTYPE_ID"))
+                    End If
+                    If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_CREDIT_DAYS"))) = False Then
+                        row.PARTNER_CREDIT_DAYS = rd.GetInt32(rd.GetOrdinal("PARTNER_CREDIT_DAYS"))
+                    End If
+                    If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_URL"))) = False Then
+                        row.PARTNER_URL = rd.GetString(rd.GetOrdinal("PARTNER_URL")).ToString()
+                    End If
+                    If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_EMAIL"))) = False Then
+                        row.PARTNER_EMAIL = rd.GetString(rd.GetOrdinal("PARTNER_EMAIL")).ToString()
                     End If
                     lst.Add(row)
                 End While

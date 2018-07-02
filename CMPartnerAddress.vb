@@ -209,7 +209,7 @@ Public Class CMPartnerAddress
                 While rd.Read()
                     row = New CMPartnerAddress(m_ConnStr)
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("Address_ID"))) = False Then
-                        row.Address_ID = rd.GetInt64(rd.GetOrdinal("Address_ID"))
+                        row.Address_ID = CInt(rd.GetInt64(rd.GetOrdinal("Address_ID")))
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("PARTNER_ID"))) = False Then
                         row.PARTNER_ID = rd.GetInt32(rd.GetOrdinal("PARTNER_ID"))
@@ -254,7 +254,7 @@ Public Class CMPartnerAddress
                         row.UpdateBy = rd.GetString(rd.GetOrdinal("UpdateBy")).ToString()
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("LastUpdate"))) = False Then
-                        row.LastUpdate = rd.GetValue(rd.GetOrdinal("LastUpdate"))
+                        row.LastUpdate = CDate(rd.GetValue(rd.GetOrdinal("LastUpdate")))
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("RecordStatus"))) = False Then
                         row.RecordStatus = rd.GetString(rd.GetOrdinal("RecordStatus")).ToString()

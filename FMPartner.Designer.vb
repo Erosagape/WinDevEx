@@ -34,14 +34,11 @@ Partial Class FMPartner
         Me.chkIncludeCancel = New System.Windows.Forms.CheckBox()
         Me.txtPARTNER_ID = New DevExpress.XtraEditors.TextEdit()
         Me.txtPARTNER_TAX = New DevExpress.XtraEditors.TextEdit()
-        Me.cboPARTNER_BUSINESS_TYPE_ID = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.cboPARTNER_BRANCH = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.txtPARTNER_BRANCH = New DevExpress.XtraEditors.TextEdit()
         Me.cboPARTNER_SOURCE = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.cboPARTNER_COUNTRY = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.cboPARTNER_PAYMENT_CONDITION = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.txtPARTNER_CREDIT_DAY = New DevExpress.XtraEditors.TextEdit()
-        Me.cboPARTNER_CURRENCY = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.txtPARTNER_DEFAULT_VAT_TYPE = New DevExpress.XtraEditors.TextEdit()
         Me.txtPARTNER_ATTACHMENT_FILENAME = New DevExpress.XtraEditors.TextEdit()
         Me.cmdBrowseFile = New DevExpress.XtraEditors.SimpleButton()
@@ -63,11 +60,8 @@ Partial Class FMPartner
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtPARTNER_ADDRESS_DOC = New DevExpress.XtraEditors.TextEdit()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.cboPARTNER_ADDRESS_AMPHOE = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.cboPARTNER_ADDR_PROVINCE = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.cboPARTNER_ADDRESS_DISTRICT = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.txtPARTNER_ADDRESS_ZIPCODE = New DevExpress.XtraEditors.TextEdit()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -90,26 +84,28 @@ Partial Class FMPartner
         Me.optFLG = New DevExpress.XtraEditors.RadioGroup()
         Me.cmdAdd = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.txtPARTNER_CODE = New DevExpress.XtraEditors.TextEdit()
+        Me.cboPARTNER_BUSINESS_TYPE_ID = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cboPARTNER_COUNTRY_ID = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cboPARTNER_CURRATE_ID = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cboPARTNER_ADDR_PROVINCE = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cboPARTNER_ADDRESS_AMPHOE = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cboPARTNER_ADDRESS_DISTRICT = New DevExpress.XtraEditors.LookUpEdit()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_ID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_TAX.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cboPARTNER_BUSINESS_TYPE_ID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboPARTNER_BRANCH.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_BRANCH.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboPARTNER_SOURCE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cboPARTNER_COUNTRY.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboPARTNER_PAYMENT_CONDITION.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_CREDIT_DAY.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cboPARTNER_CURRENCY.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_DEFAULT_VAT_TYPE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_ATTACHMENT_FILENAME.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_NAME1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_NAME2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_ADDRESS_DOC.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cboPARTNER_ADDRESS_AMPHOE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cboPARTNER_ADDR_PROVINCE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cboPARTNER_ADDRESS_DISTRICT.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_ADDRESS_ZIPCODE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_CONTACT1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_PHONENO.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,6 +117,13 @@ Partial Class FMPartner
         CType(Me.optFLG.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.txtPARTNER_CODE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPARTNER_BUSINESS_TYPE_ID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPARTNER_COUNTRY_ID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPARTNER_CURRATE_ID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPARTNER_ADDR_PROVINCE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPARTNER_ADDRESS_AMPHOE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPARTNER_ADDRESS_DISTRICT.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GridControl1
@@ -220,7 +223,7 @@ Partial Class FMPartner
         Me.cmdCancel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
-        Me.cmdCancel.TabIndex = 80
+        Me.cmdCancel.TabIndex = 32
         Me.cmdCancel.Text = "ยกเลิก"
         '
         'chkIncludeCancel
@@ -229,31 +232,24 @@ Partial Class FMPartner
         Me.chkIncludeCancel.Location = New System.Drawing.Point(506, 276)
         Me.chkIncludeCancel.Name = "chkIncludeCancel"
         Me.chkIncludeCancel.Size = New System.Drawing.Size(82, 17)
-        Me.chkIncludeCancel.TabIndex = 108
+        Me.chkIncludeCancel.TabIndex = 31
         Me.chkIncludeCancel.Text = "รวมที่ยกเลิก"
         Me.chkIncludeCancel.UseVisualStyleBackColor = True
         '
         'txtPARTNER_ID
         '
+        Me.txtPARTNER_ID.Enabled = False
         Me.txtPARTNER_ID.Location = New System.Drawing.Point(96, 18)
         Me.txtPARTNER_ID.Name = "txtPARTNER_ID"
-        Me.txtPARTNER_ID.Size = New System.Drawing.Size(123, 20)
-        Me.txtPARTNER_ID.TabIndex = 112
+        Me.txtPARTNER_ID.Size = New System.Drawing.Size(99, 20)
+        Me.txtPARTNER_ID.TabIndex = 0
         '
         'txtPARTNER_TAX
         '
-        Me.txtPARTNER_TAX.Location = New System.Drawing.Point(277, 18)
+        Me.txtPARTNER_TAX.Location = New System.Drawing.Point(447, 18)
         Me.txtPARTNER_TAX.Name = "txtPARTNER_TAX"
-        Me.txtPARTNER_TAX.Size = New System.Drawing.Size(119, 20)
-        Me.txtPARTNER_TAX.TabIndex = 113
-        '
-        'cboPARTNER_BUSINESS_TYPE_ID
-        '
-        Me.cboPARTNER_BUSINESS_TYPE_ID.Location = New System.Drawing.Point(484, 18)
-        Me.cboPARTNER_BUSINESS_TYPE_ID.Name = "cboPARTNER_BUSINESS_TYPE_ID"
-        Me.cboPARTNER_BUSINESS_TYPE_ID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboPARTNER_BUSINESS_TYPE_ID.Size = New System.Drawing.Size(87, 20)
-        Me.cboPARTNER_BUSINESS_TYPE_ID.TabIndex = 114
+        Me.txtPARTNER_TAX.Size = New System.Drawing.Size(124, 20)
+        Me.txtPARTNER_TAX.TabIndex = 3
         '
         'cboPARTNER_BRANCH
         '
@@ -261,14 +257,14 @@ Partial Class FMPartner
         Me.cboPARTNER_BRANCH.Name = "cboPARTNER_BRANCH"
         Me.cboPARTNER_BRANCH.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_BRANCH.Size = New System.Drawing.Size(123, 20)
-        Me.cboPARTNER_BRANCH.TabIndex = 116
+        Me.cboPARTNER_BRANCH.TabIndex = 5
         '
         'txtPARTNER_BRANCH
         '
         Me.txtPARTNER_BRANCH.Location = New System.Drawing.Point(277, 44)
         Me.txtPARTNER_BRANCH.Name = "txtPARTNER_BRANCH"
         Me.txtPARTNER_BRANCH.Size = New System.Drawing.Size(67, 20)
-        Me.txtPARTNER_BRANCH.TabIndex = 117
+        Me.txtPARTNER_BRANCH.TabIndex = 6
         '
         'cboPARTNER_SOURCE
         '
@@ -276,15 +272,7 @@ Partial Class FMPartner
         Me.cboPARTNER_SOURCE.Name = "cboPARTNER_SOURCE"
         Me.cboPARTNER_SOURCE.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_SOURCE.Size = New System.Drawing.Size(124, 20)
-        Me.cboPARTNER_SOURCE.TabIndex = 118
-        '
-        'cboPARTNER_COUNTRY
-        '
-        Me.cboPARTNER_COUNTRY.Location = New System.Drawing.Point(633, 44)
-        Me.cboPARTNER_COUNTRY.Name = "cboPARTNER_COUNTRY"
-        Me.cboPARTNER_COUNTRY.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboPARTNER_COUNTRY.Size = New System.Drawing.Size(125, 20)
-        Me.cboPARTNER_COUNTRY.TabIndex = 119
+        Me.cboPARTNER_SOURCE.TabIndex = 7
         '
         'cboPARTNER_PAYMENT_CONDITION
         '
@@ -292,36 +280,28 @@ Partial Class FMPartner
         Me.cboPARTNER_PAYMENT_CONDITION.Name = "cboPARTNER_PAYMENT_CONDITION"
         Me.cboPARTNER_PAYMENT_CONDITION.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_PAYMENT_CONDITION.Size = New System.Drawing.Size(132, 20)
-        Me.cboPARTNER_PAYMENT_CONDITION.TabIndex = 120
+        Me.cboPARTNER_PAYMENT_CONDITION.TabIndex = 9
         '
         'txtPARTNER_CREDIT_DAY
         '
         Me.txtPARTNER_CREDIT_DAY.Location = New System.Drawing.Point(500, 70)
         Me.txtPARTNER_CREDIT_DAY.Name = "txtPARTNER_CREDIT_DAY"
         Me.txtPARTNER_CREDIT_DAY.Size = New System.Drawing.Size(71, 20)
-        Me.txtPARTNER_CREDIT_DAY.TabIndex = 121
-        '
-        'cboPARTNER_CURRENCY
-        '
-        Me.cboPARTNER_CURRENCY.Location = New System.Drawing.Point(339, 70)
-        Me.cboPARTNER_CURRENCY.Name = "cboPARTNER_CURRENCY"
-        Me.cboPARTNER_CURRENCY.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboPARTNER_CURRENCY.Size = New System.Drawing.Size(57, 20)
-        Me.cboPARTNER_CURRENCY.TabIndex = 122
+        Me.txtPARTNER_CREDIT_DAY.TabIndex = 11
         '
         'txtPARTNER_DEFAULT_VAT_TYPE
         '
         Me.txtPARTNER_DEFAULT_VAT_TYPE.Location = New System.Drawing.Point(699, 70)
         Me.txtPARTNER_DEFAULT_VAT_TYPE.Name = "txtPARTNER_DEFAULT_VAT_TYPE"
         Me.txtPARTNER_DEFAULT_VAT_TYPE.Size = New System.Drawing.Size(59, 20)
-        Me.txtPARTNER_DEFAULT_VAT_TYPE.TabIndex = 123
+        Me.txtPARTNER_DEFAULT_VAT_TYPE.TabIndex = 12
         '
         'txtPARTNER_ATTACHMENT_FILENAME
         '
         Me.txtPARTNER_ATTACHMENT_FILENAME.Location = New System.Drawing.Point(94, 232)
         Me.txtPARTNER_ATTACHMENT_FILENAME.Name = "txtPARTNER_ATTACHMENT_FILENAME"
         Me.txtPARTNER_ATTACHMENT_FILENAME.Size = New System.Drawing.Size(177, 20)
-        Me.txtPARTNER_ATTACHMENT_FILENAME.TabIndex = 124
+        Me.txtPARTNER_ATTACHMENT_FILENAME.TabIndex = 27
         '
         'cmdBrowseFile
         '
@@ -343,7 +323,7 @@ Partial Class FMPartner
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(225, 21)
+        Me.Label2.Location = New System.Drawing.Point(395, 21)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 127
@@ -352,7 +332,7 @@ Partial Class FMPartner
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(404, 21)
+        Me.Label3.Location = New System.Drawing.Point(577, 21)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(74, 13)
         Me.Label3.TabIndex = 128
@@ -444,7 +424,7 @@ Partial Class FMPartner
         Me.txtPARTNER_NAME1.Location = New System.Drawing.Point(139, 97)
         Me.txtPARTNER_NAME1.Name = "txtPARTNER_NAME1"
         Me.txtPARTNER_NAME1.Size = New System.Drawing.Size(258, 20)
-        Me.txtPARTNER_NAME1.TabIndex = 138
+        Me.txtPARTNER_NAME1.TabIndex = 13
         '
         'Label13
         '
@@ -460,7 +440,7 @@ Partial Class FMPartner
         Me.txtPARTNER_NAME2.Location = New System.Drawing.Point(500, 97)
         Me.txtPARTNER_NAME2.Name = "txtPARTNER_NAME2"
         Me.txtPARTNER_NAME2.Size = New System.Drawing.Size(258, 20)
-        Me.txtPARTNER_NAME2.TabIndex = 140
+        Me.txtPARTNER_NAME2.TabIndex = 14
         '
         'Label14
         '
@@ -476,7 +456,7 @@ Partial Class FMPartner
         Me.txtPARTNER_ADDRESS_DOC.Location = New System.Drawing.Point(96, 123)
         Me.txtPARTNER_ADDRESS_DOC.Name = "txtPARTNER_ADDRESS_DOC"
         Me.txtPARTNER_ADDRESS_DOC.Size = New System.Drawing.Size(301, 20)
-        Me.txtPARTNER_ADDRESS_DOC.TabIndex = 142
+        Me.txtPARTNER_ADDRESS_DOC.TabIndex = 15
         '
         'Label15
         '
@@ -486,22 +466,6 @@ Partial Class FMPartner
         Me.Label15.Size = New System.Drawing.Size(61, 13)
         Me.Label15.TabIndex = 143
         Me.Label15.Text = "ที่อยู่เลขที่ :"
-        '
-        'cboPARTNER_ADDRESS_AMPHOE
-        '
-        Me.cboPARTNER_ADDRESS_AMPHOE.Location = New System.Drawing.Point(663, 123)
-        Me.cboPARTNER_ADDRESS_AMPHOE.Name = "cboPARTNER_ADDRESS_AMPHOE"
-        Me.cboPARTNER_ADDRESS_AMPHOE.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboPARTNER_ADDRESS_AMPHOE.Size = New System.Drawing.Size(95, 20)
-        Me.cboPARTNER_ADDRESS_AMPHOE.TabIndex = 145
-        '
-        'cboPARTNER_ADDR_PROVINCE
-        '
-        Me.cboPARTNER_ADDR_PROVINCE.Location = New System.Drawing.Point(447, 123)
-        Me.cboPARTNER_ADDR_PROVINCE.Name = "cboPARTNER_ADDR_PROVINCE"
-        Me.cboPARTNER_ADDR_PROVINCE.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboPARTNER_ADDR_PROVINCE.Size = New System.Drawing.Size(124, 20)
-        Me.cboPARTNER_ADDR_PROVINCE.TabIndex = 144
         '
         'Label16
         '
@@ -521,20 +485,12 @@ Partial Class FMPartner
         Me.Label17.TabIndex = 147
         Me.Label17.Text = "อำเภอ/เขต :"
         '
-        'cboPARTNER_ADDRESS_DISTRICT
-        '
-        Me.cboPARTNER_ADDRESS_DISTRICT.Location = New System.Drawing.Point(96, 149)
-        Me.cboPARTNER_ADDRESS_DISTRICT.Name = "cboPARTNER_ADDRESS_DISTRICT"
-        Me.cboPARTNER_ADDRESS_DISTRICT.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cboPARTNER_ADDRESS_DISTRICT.Size = New System.Drawing.Size(91, 20)
-        Me.cboPARTNER_ADDRESS_DISTRICT.TabIndex = 148
-        '
         'txtPARTNER_ADDRESS_ZIPCODE
         '
         Me.txtPARTNER_ADDRESS_ZIPCODE.Location = New System.Drawing.Point(277, 149)
         Me.txtPARTNER_ADDRESS_ZIPCODE.Name = "txtPARTNER_ADDRESS_ZIPCODE"
         Me.txtPARTNER_ADDRESS_ZIPCODE.Size = New System.Drawing.Size(67, 20)
-        Me.txtPARTNER_ADDRESS_ZIPCODE.TabIndex = 149
+        Me.txtPARTNER_ADDRESS_ZIPCODE.TabIndex = 19
         '
         'Label18
         '
@@ -559,14 +515,14 @@ Partial Class FMPartner
         Me.txtPARTNER_CONTACT1.Location = New System.Drawing.Point(419, 149)
         Me.txtPARTNER_CONTACT1.Name = "txtPARTNER_CONTACT1"
         Me.txtPARTNER_CONTACT1.Size = New System.Drawing.Size(339, 20)
-        Me.txtPARTNER_CONTACT1.TabIndex = 152
+        Me.txtPARTNER_CONTACT1.TabIndex = 20
         '
         'txtPARTNER_PHONENO
         '
         Me.txtPARTNER_PHONENO.Location = New System.Drawing.Point(82, 178)
         Me.txtPARTNER_PHONENO.Name = "txtPARTNER_PHONENO"
         Me.txtPARTNER_PHONENO.Size = New System.Drawing.Size(105, 20)
-        Me.txtPARTNER_PHONENO.TabIndex = 153
+        Me.txtPARTNER_PHONENO.TabIndex = 21
         '
         'Label20
         '
@@ -591,14 +547,14 @@ Partial Class FMPartner
         Me.txtPARTNER_EMAIL.Location = New System.Drawing.Point(242, 178)
         Me.txtPARTNER_EMAIL.Name = "txtPARTNER_EMAIL"
         Me.txtPARTNER_EMAIL.Size = New System.Drawing.Size(142, 20)
-        Me.txtPARTNER_EMAIL.TabIndex = 156
+        Me.txtPARTNER_EMAIL.TabIndex = 22
         '
         'txtPARTNER_WEBSITE
         '
         Me.txtPARTNER_WEBSITE.Location = New System.Drawing.Point(447, 178)
         Me.txtPARTNER_WEBSITE.Name = "txtPARTNER_WEBSITE"
         Me.txtPARTNER_WEBSITE.Size = New System.Drawing.Size(138, 20)
-        Me.txtPARTNER_WEBSITE.TabIndex = 157
+        Me.txtPARTNER_WEBSITE.TabIndex = 23
         '
         'Label22
         '
@@ -623,7 +579,7 @@ Partial Class FMPartner
         Me.txtPARTNER_FIRSTCREDITAMOUNT.Location = New System.Drawing.Point(672, 178)
         Me.txtPARTNER_FIRSTCREDITAMOUNT.Name = "txtPARTNER_FIRSTCREDITAMOUNT"
         Me.txtPARTNER_FIRSTCREDITAMOUNT.Size = New System.Drawing.Size(87, 20)
-        Me.txtPARTNER_FIRSTCREDITAMOUNT.TabIndex = 160
+        Me.txtPARTNER_FIRSTCREDITAMOUNT.TabIndex = 24
         '
         'Label24
         '
@@ -639,14 +595,14 @@ Partial Class FMPartner
         Me.txtPARTNER_REMARK1.Location = New System.Drawing.Point(94, 204)
         Me.txtPARTNER_REMARK1.Name = "txtPARTNER_REMARK1"
         Me.txtPARTNER_REMARK1.Size = New System.Drawing.Size(303, 20)
-        Me.txtPARTNER_REMARK1.TabIndex = 162
+        Me.txtPARTNER_REMARK1.TabIndex = 25
         '
         'txtPARTNER_REMARK2
         '
         Me.txtPARTNER_REMARK2.Location = New System.Drawing.Point(484, 204)
         Me.txtPARTNER_REMARK2.Name = "txtPARTNER_REMARK2"
         Me.txtPARTNER_REMARK2.Size = New System.Drawing.Size(274, 20)
-        Me.txtPARTNER_REMARK2.TabIndex = 163
+        Me.txtPARTNER_REMARK2.TabIndex = 26
         '
         'Label25
         '
@@ -663,7 +619,7 @@ Partial Class FMPartner
         Me.cmdUpdate.LookAndFeel.SkinName = "Office 2010 Blue"
         Me.cmdUpdate.Name = "cmdUpdate"
         Me.cmdUpdate.Size = New System.Drawing.Size(75, 23)
-        Me.cmdUpdate.TabIndex = 115
+        Me.cmdUpdate.TabIndex = 29
         Me.cmdUpdate.Text = "บันทึก"
         '
         'Label26
@@ -678,7 +634,7 @@ Partial Class FMPartner
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(583, 21)
+        Me.Label27.Location = New System.Drawing.Point(405, 235)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(44, 13)
         Me.Label27.TabIndex = 166
@@ -686,11 +642,11 @@ Partial Class FMPartner
         '
         'optFLG
         '
-        Me.optFLG.Location = New System.Drawing.Point(633, 15)
+        Me.optFLG.Location = New System.Drawing.Point(460, 230)
         Me.optFLG.Name = "optFLG"
         Me.optFLG.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(0, Short), "Active"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(9, Short), "Cancel")})
         Me.optFLG.Size = New System.Drawing.Size(125, 23)
-        Me.optFLG.TabIndex = 167
+        Me.optFLG.TabIndex = 28
         '
         'cmdAdd
         '
@@ -698,11 +654,13 @@ Partial Class FMPartner
         Me.cmdAdd.LookAndFeel.SkinName = "Office 2010 Blue"
         Me.cmdAdd.Name = "cmdAdd"
         Me.cmdAdd.Size = New System.Drawing.Size(75, 23)
-        Me.cmdAdd.TabIndex = 168
+        Me.cmdAdd.TabIndex = 30
         Me.cmdAdd.Text = "เพิ่ม"
         '
         'PanelControl1
         '
+        Me.PanelControl1.Controls.Add(Me.Label28)
+        Me.PanelControl1.Controls.Add(Me.txtPARTNER_CODE)
         Me.PanelControl1.Controls.Add(Me.cmdAdd)
         Me.PanelControl1.Controls.Add(Me.optFLG)
         Me.PanelControl1.Controls.Add(Me.Label27)
@@ -724,11 +682,8 @@ Partial Class FMPartner
         Me.PanelControl1.Controls.Add(Me.Label19)
         Me.PanelControl1.Controls.Add(Me.Label18)
         Me.PanelControl1.Controls.Add(Me.txtPARTNER_ADDRESS_ZIPCODE)
-        Me.PanelControl1.Controls.Add(Me.cboPARTNER_ADDRESS_DISTRICT)
         Me.PanelControl1.Controls.Add(Me.Label17)
         Me.PanelControl1.Controls.Add(Me.Label16)
-        Me.PanelControl1.Controls.Add(Me.cboPARTNER_ADDR_PROVINCE)
-        Me.PanelControl1.Controls.Add(Me.cboPARTNER_ADDRESS_AMPHOE)
         Me.PanelControl1.Controls.Add(Me.Label15)
         Me.PanelControl1.Controls.Add(Me.txtPARTNER_ADDRESS_DOC)
         Me.PanelControl1.Controls.Add(Me.Label14)
@@ -750,21 +705,106 @@ Partial Class FMPartner
         Me.PanelControl1.Controls.Add(Me.cmdBrowseFile)
         Me.PanelControl1.Controls.Add(Me.txtPARTNER_ATTACHMENT_FILENAME)
         Me.PanelControl1.Controls.Add(Me.txtPARTNER_DEFAULT_VAT_TYPE)
-        Me.PanelControl1.Controls.Add(Me.cboPARTNER_CURRENCY)
         Me.PanelControl1.Controls.Add(Me.txtPARTNER_CREDIT_DAY)
         Me.PanelControl1.Controls.Add(Me.cboPARTNER_PAYMENT_CONDITION)
-        Me.PanelControl1.Controls.Add(Me.cboPARTNER_COUNTRY)
         Me.PanelControl1.Controls.Add(Me.cboPARTNER_SOURCE)
         Me.PanelControl1.Controls.Add(Me.txtPARTNER_BRANCH)
         Me.PanelControl1.Controls.Add(Me.cboPARTNER_BRANCH)
-        Me.PanelControl1.Controls.Add(Me.cboPARTNER_BUSINESS_TYPE_ID)
         Me.PanelControl1.Controls.Add(Me.txtPARTNER_TAX)
         Me.PanelControl1.Controls.Add(Me.txtPARTNER_ID)
+        Me.PanelControl1.Controls.Add(Me.cboPARTNER_BUSINESS_TYPE_ID)
+        Me.PanelControl1.Controls.Add(Me.cboPARTNER_COUNTRY_ID)
+        Me.PanelControl1.Controls.Add(Me.cboPARTNER_CURRATE_ID)
+        Me.PanelControl1.Controls.Add(Me.cboPARTNER_ADDR_PROVINCE)
+        Me.PanelControl1.Controls.Add(Me.cboPARTNER_ADDRESS_AMPHOE)
+        Me.PanelControl1.Controls.Add(Me.cboPARTNER_ADDRESS_DISTRICT)
         Me.PanelControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelControl1.Location = New System.Drawing.Point(0, 0)
         Me.PanelControl1.Name = "PanelControl1"
         Me.PanelControl1.Size = New System.Drawing.Size(790, 270)
         Me.PanelControl1.TabIndex = 109
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(212, 21)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(59, 13)
+        Me.Label28.TabIndex = 170
+        Me.Label28.Text = "Ref Code :"
+        '
+        'txtPARTNER_CODE
+        '
+        Me.txtPARTNER_CODE.Location = New System.Drawing.Point(277, 18)
+        Me.txtPARTNER_CODE.Name = "txtPARTNER_CODE"
+        Me.txtPARTNER_CODE.Size = New System.Drawing.Size(107, 20)
+        Me.txtPARTNER_CODE.TabIndex = 2
+        '
+        'cboPARTNER_BUSINESS_TYPE_ID
+        '
+        Me.cboPARTNER_BUSINESS_TYPE_ID.Location = New System.Drawing.Point(657, 18)
+        Me.cboPARTNER_BUSINESS_TYPE_ID.Name = "cboPARTNER_BUSINESS_TYPE_ID"
+        Me.cboPARTNER_BUSINESS_TYPE_ID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboPARTNER_BUSINESS_TYPE_ID.Properties.NullText = ""
+        Me.cboPARTNER_BUSINESS_TYPE_ID.Properties.PopupSizeable = False
+        Me.cboPARTNER_BUSINESS_TYPE_ID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.cboPARTNER_BUSINESS_TYPE_ID.Size = New System.Drawing.Size(97, 20)
+        Me.cboPARTNER_BUSINESS_TYPE_ID.TabIndex = 4
+        '
+        'cboPARTNER_COUNTRY_ID
+        '
+        Me.cboPARTNER_COUNTRY_ID.Location = New System.Drawing.Point(633, 44)
+        Me.cboPARTNER_COUNTRY_ID.Name = "cboPARTNER_COUNTRY_ID"
+        Me.cboPARTNER_COUNTRY_ID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboPARTNER_COUNTRY_ID.Properties.NullText = ""
+        Me.cboPARTNER_COUNTRY_ID.Properties.PopupSizeable = False
+        Me.cboPARTNER_COUNTRY_ID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.cboPARTNER_COUNTRY_ID.Size = New System.Drawing.Size(125, 20)
+        Me.cboPARTNER_COUNTRY_ID.TabIndex = 8
+        '
+        'cboPARTNER_CURRATE_ID
+        '
+        Me.cboPARTNER_CURRATE_ID.Location = New System.Drawing.Point(339, 70)
+        Me.cboPARTNER_CURRATE_ID.Name = "cboPARTNER_CURRATE_ID"
+        Me.cboPARTNER_CURRATE_ID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboPARTNER_CURRATE_ID.Properties.NullText = ""
+        Me.cboPARTNER_CURRATE_ID.Properties.PopupSizeable = False
+        Me.cboPARTNER_CURRATE_ID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.cboPARTNER_CURRATE_ID.Size = New System.Drawing.Size(57, 20)
+        Me.cboPARTNER_CURRATE_ID.TabIndex = 10
+        '
+        'cboPARTNER_ADDR_PROVINCE
+        '
+        Me.cboPARTNER_ADDR_PROVINCE.Location = New System.Drawing.Point(447, 123)
+        Me.cboPARTNER_ADDR_PROVINCE.Name = "cboPARTNER_ADDR_PROVINCE"
+        Me.cboPARTNER_ADDR_PROVINCE.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboPARTNER_ADDR_PROVINCE.Properties.NullText = ""
+        Me.cboPARTNER_ADDR_PROVINCE.Properties.PopupSizeable = False
+        Me.cboPARTNER_ADDR_PROVINCE.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.cboPARTNER_ADDR_PROVINCE.Size = New System.Drawing.Size(124, 20)
+        Me.cboPARTNER_ADDR_PROVINCE.TabIndex = 16
+        '
+        'cboPARTNER_ADDRESS_AMPHOE
+        '
+        Me.cboPARTNER_ADDRESS_AMPHOE.Location = New System.Drawing.Point(663, 123)
+        Me.cboPARTNER_ADDRESS_AMPHOE.Name = "cboPARTNER_ADDRESS_AMPHOE"
+        Me.cboPARTNER_ADDRESS_AMPHOE.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboPARTNER_ADDRESS_AMPHOE.Properties.NullText = ""
+        Me.cboPARTNER_ADDRESS_AMPHOE.Properties.PopupSizeable = False
+        Me.cboPARTNER_ADDRESS_AMPHOE.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.cboPARTNER_ADDRESS_AMPHOE.Size = New System.Drawing.Size(95, 20)
+        Me.cboPARTNER_ADDRESS_AMPHOE.TabIndex = 17
+        '
+        'cboPARTNER_ADDRESS_DISTRICT
+        '
+        Me.cboPARTNER_ADDRESS_DISTRICT.Location = New System.Drawing.Point(96, 149)
+        Me.cboPARTNER_ADDRESS_DISTRICT.Name = "cboPARTNER_ADDRESS_DISTRICT"
+        Me.cboPARTNER_ADDRESS_DISTRICT.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboPARTNER_ADDRESS_DISTRICT.Properties.NullText = ""
+        Me.cboPARTNER_ADDRESS_DISTRICT.Properties.PopupSizeable = False
+        Me.cboPARTNER_ADDRESS_DISTRICT.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.cboPARTNER_ADDRESS_DISTRICT.Size = New System.Drawing.Size(91, 20)
+        Me.cboPARTNER_ADDRESS_DISTRICT.TabIndex = 18
         '
         'FMPartner
         '
@@ -775,6 +815,7 @@ Partial Class FMPartner
         Me.Controls.Add(Me.chkIncludeCancel)
         Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.GridControl1)
+        Me.KeyPreview = True
         Me.Name = "FMPartner"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Master Supplier"
@@ -782,22 +823,16 @@ Partial Class FMPartner
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_ID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_TAX.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cboPARTNER_BUSINESS_TYPE_ID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboPARTNER_BRANCH.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_BRANCH.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboPARTNER_SOURCE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cboPARTNER_COUNTRY.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboPARTNER_PAYMENT_CONDITION.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_CREDIT_DAY.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cboPARTNER_CURRENCY.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_DEFAULT_VAT_TYPE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_ATTACHMENT_FILENAME.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_NAME1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_NAME2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_ADDRESS_DOC.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cboPARTNER_ADDRESS_AMPHOE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cboPARTNER_ADDR_PROVINCE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cboPARTNER_ADDRESS_DISTRICT.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_ADDRESS_ZIPCODE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_CONTACT1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_PHONENO.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -810,6 +845,13 @@ Partial Class FMPartner
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.txtPARTNER_CODE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPARTNER_BUSINESS_TYPE_ID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPARTNER_COUNTRY_ID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPARTNER_CURRATE_ID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPARTNER_ADDR_PROVINCE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPARTNER_ADDRESS_AMPHOE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPARTNER_ADDRESS_DISTRICT.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -830,14 +872,11 @@ Partial Class FMPartner
     Friend WithEvents chkIncludeCancel As CheckBox
     Friend WithEvents txtPARTNER_ID As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtPARTNER_TAX As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents cboPARTNER_BUSINESS_TYPE_ID As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents cboPARTNER_BRANCH As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents txtPARTNER_BRANCH As DevExpress.XtraEditors.TextEdit
     Friend WithEvents cboPARTNER_SOURCE As DevExpress.XtraEditors.ComboBoxEdit
-    Friend WithEvents cboPARTNER_COUNTRY As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents cboPARTNER_PAYMENT_CONDITION As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents txtPARTNER_CREDIT_DAY As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents cboPARTNER_CURRENCY As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents txtPARTNER_DEFAULT_VAT_TYPE As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtPARTNER_ATTACHMENT_FILENAME As DevExpress.XtraEditors.TextEdit
     Friend WithEvents cmdBrowseFile As DevExpress.XtraEditors.SimpleButton
@@ -859,11 +898,8 @@ Partial Class FMPartner
     Friend WithEvents Label14 As Label
     Friend WithEvents txtPARTNER_ADDRESS_DOC As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label15 As Label
-    Friend WithEvents cboPARTNER_ADDRESS_AMPHOE As DevExpress.XtraEditors.ComboBoxEdit
-    Friend WithEvents cboPARTNER_ADDR_PROVINCE As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
-    Friend WithEvents cboPARTNER_ADDRESS_DISTRICT As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents txtPARTNER_ADDRESS_ZIPCODE As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
@@ -886,4 +922,12 @@ Partial Class FMPartner
     Friend WithEvents optFLG As DevExpress.XtraEditors.RadioGroup
     Friend WithEvents cmdAdd As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents Label28 As Label
+    Friend WithEvents txtPARTNER_CODE As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents cboPARTNER_BUSINESS_TYPE_ID As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cboPARTNER_COUNTRY_ID As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cboPARTNER_CURRATE_ID As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cboPARTNER_ADDR_PROVINCE As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cboPARTNER_ADDRESS_AMPHOE As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents cboPARTNER_ADDRESS_DISTRICT As DevExpress.XtraEditors.LookUpEdit
 End Class

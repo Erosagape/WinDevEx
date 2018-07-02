@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CFunction.vb" />
+    <Compile Include="CMAddressCountry.vb" />
     <Compile Include="CMAddressDistricts.vb" />
     <Compile Include="CMAddressProvinces.vb" />
     <Compile Include="CMAddressSubDistricts.vb" />

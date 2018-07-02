@@ -111,7 +111,7 @@ Public Class CMPartnerPrefix
                         row.Updated_By = rd.GetString(rd.GetOrdinal("Updated_By")).ToString()
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("Updated_Date"))) = False Then
-                        row.Updated_Date = rd.GetValue(rd.GetOrdinal("Updated_Date"))
+                        row.Updated_Date = CDate(rd.GetValue(rd.GetOrdinal("Updated_Date")))
                     End If
                     If IsDBNull(rd.GetValue(rd.GetOrdinal("Partner_Prefix__Flg"))) = False Then
                         row.Partner_Prefix__Flg = rd.GetInt32(rd.GetOrdinal("Partner_Prefix__Flg"))
