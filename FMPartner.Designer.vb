@@ -37,7 +37,7 @@ Partial Class FMPartner
         Me.cboPARTNER_BRANCH = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.txtPARTNER_BRANCH = New DevExpress.XtraEditors.TextEdit()
         Me.cboPARTNER_SOURCE = New DevExpress.XtraEditors.ComboBoxEdit()
-        Me.cboPARTNER_PAYMENT_CONDITION = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.cboPARTNER_PAYMENT_CONDITION = New DevExpress.XtraEditors.LookUpEdit()
         Me.txtPARTNER_CREDIT_DAY = New DevExpress.XtraEditors.TextEdit()
         Me.txtPARTNER_DEFAULT_VAT_TYPE = New DevExpress.XtraEditors.TextEdit()
         Me.txtPARTNER_ATTACHMENT_FILENAME = New DevExpress.XtraEditors.TextEdit()
@@ -279,6 +279,9 @@ Partial Class FMPartner
         Me.cboPARTNER_PAYMENT_CONDITION.Location = New System.Drawing.Point(139, 70)
         Me.cboPARTNER_PAYMENT_CONDITION.Name = "cboPARTNER_PAYMENT_CONDITION"
         Me.cboPARTNER_PAYMENT_CONDITION.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboPARTNER_PAYMENT_CONDITION.Properties.NullText = ""
+        Me.cboPARTNER_PAYMENT_CONDITION.Properties.PopupSizeable = False
+        Me.cboPARTNER_PAYMENT_CONDITION.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.cboPARTNER_PAYMENT_CONDITION.Size = New System.Drawing.Size(132, 20)
         Me.cboPARTNER_PAYMENT_CONDITION.TabIndex = 9
         '
@@ -875,7 +878,7 @@ Partial Class FMPartner
     Friend WithEvents cboPARTNER_BRANCH As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents txtPARTNER_BRANCH As DevExpress.XtraEditors.TextEdit
     Friend WithEvents cboPARTNER_SOURCE As DevExpress.XtraEditors.ComboBoxEdit
-    Friend WithEvents cboPARTNER_PAYMENT_CONDITION As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents cboPARTNER_PAYMENT_CONDITION As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents txtPARTNER_CREDIT_DAY As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtPARTNER_DEFAULT_VAT_TYPE As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtPARTNER_ATTACHMENT_FILENAME As DevExpress.XtraEditors.TextEdit

@@ -39,13 +39,26 @@ Public Class FMPartner
         cboPARTNER_COUNTRY_ID.Properties.ValueMember = "COUNTRY_ID"
     End Sub
     Private Sub SetCboPaymentType()
+        Dim ds = From a In New CMPaymentType(conn).GetData("")
+                 Select a.payment_id, a.payment_name
 
+        cboPARTNER_PAYMENT_CONDITION.Properties.DataSource = ds
+        cboPARTNER_PAYMENT_CONDITION.Properties.DisplayMember = "payment_name"
+        cboPARTNER_PAYMENT_CONDITION.Properties.ValueMember = "payment_id"
     End Sub
     Private Sub SetCboCurrency()
+        Dim ds = From a In New CMRate(conn).GetData("")
+                 Select a.rate_id, a.rate_code, a.rate_name
 
+        cboPARTNER_CURRATE_ID.Properties.DataSource = ds
+        cboPARTNER_CURRATE_ID.Properties.DisplayMember = "rate_code"
+        cboPARTNER_CURRATE_ID.Properties.ValueMember = "rate_id"
     End Sub
     Private Sub SetCboProvince()
-        cboPARTNER_ADDR_PROVINCE.Properties.DataSource = New CMAddressProvinces(conn).GetData("")
+        Dim ds = From a In New CMAddressProvinces(conn).GetData("")
+                 Select a.Id, a.ProvincesThai
+
+        cboPARTNER_ADDR_PROVINCE.Properties.DataSource = ds
         cboPARTNER_ADDR_PROVINCE.Properties.DisplayMember = "ProvincesThai"
         cboPARTNER_ADDR_PROVINCE.Properties.ValueMember = "Id"
     End Sub
@@ -61,5 +74,28 @@ Public Class FMPartner
 
     Private Sub PanelControl1_Paint(sender As Object, e As PaintEventArgs) Handles PanelControl1.Paint
 
+    End Sub
+
+    Private Sub cboPARTNER_ADDR_PROVINCE_Validated(sender As Object, e As EventArgs) Handles cboPARTNER_ADDR_PROVINCE.Validated
+        If cboPARTNER_ADDR_PROVINCE.EditValue Is Nothing Then Exit Sub
+        Dim ds = From a In New CMAddressDistricts(conn).GetData(" WHERE ProvinceId=" & cboPARTNER_ADDR_PROVINCE.EditValue.ToString())
+                 Select a.Id, a.DistrictsThai, a.DistrictsEnglish
+
+        cboPARTNER_ADDRESS_AMPHOE.Properties.DataSource = ds
+        cboPARTNER_ADDRESS_AMPHOE.Properties.DisplayMember = "DistrictsThai"
+        cboPARTNER_ADDRESS_AMPHOE.Properties.ValueMember = "Id"
+        cboPARTNER_ADDRESS_AMPHOE.EditValue = Nothing
+        cboPARTNER_ADDRESS_DISTRICT.EditValue = Nothing
+    End Sub
+
+    Private Sub cboPARTNER_ADDRESS_AMPHOE_Validated(sender As Object, e As EventArgs) Handles cboPARTNER_ADDRESS_AMPHOE.Validated
+        If cboPARTNER_ADDRESS_AMPHOE.EditValue Is Nothing Then Exit Sub
+        Dim ds = From a In New CMAddressSubDistricts(conn).GetData(" WHERE DistrictId=" & cboPARTNER_ADDRESS_AMPHOE.EditValue.ToString())
+                 Select a.Id, a.SubdistrictsThai, a.SubdistrictsEnglish
+
+        cboPARTNER_ADDRESS_DISTRICT.Properties.DataSource = ds
+        cboPARTNER_ADDRESS_DISTRICT.Properties.DisplayMember = "SubdistrictsThai"
+        cboPARTNER_ADDRESS_DISTRICT.Properties.ValueMember = "Id"
+        cboPARTNER_ADDRESS_DISTRICT.EditValue = Nothing
     End Sub
 End Class
