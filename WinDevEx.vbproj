@@ -104,14 +104,15 @@
     <Compile Include="CMPartnerAddress.vb" />
     <Compile Include="CMPartnerAttachment.vb" />
     <Compile Include="CMPartnerBusinessType.vb" />
+    <Compile Include="CMPartnerPrefix.vb" />
     <Compile Include="CMPartnerType.vb" />
     <Compile Include="CMPaymentType.vb" />
     <Compile Include="CMRate.vb" />
     <Compile Include="CVender.vb" />
-    <Compile Include="FMPartner.Designer.vb">
-      <DependentUpon>FMPartner.vb</DependentUpon>
+    <Compile Include="FMSupplier.Designer.vb">
+      <DependentUpon>FMSupplier.vb</DependentUpon>
     </Compile>
-    <Compile Include="FMPartner.vb">
+    <Compile Include="FMSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -125,8 +126,8 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
-    <EmbeddedResource Include="FMPartner.resx">
-      <DependentUpon>FMPartner.vb</DependentUpon>
+    <EmbeddedResource Include="FMSupplier.resx">
+      <DependentUpon>FMSupplier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

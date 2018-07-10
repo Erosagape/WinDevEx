@@ -423,7 +423,7 @@ ReQuery:
                 Dim rd As SqlDataReader = New SqlCommand("SELECT ISNULL(MAX(PARTNER_ID),0) as t FROM tbl_partner WHERE PARTNER_ID Like '" & pFormat & "%'", cn).ExecuteReader()
                 If rd.HasRows Then
                     rd.Read()
-                    pReturn = CInt(rd.GetInt64(0))
+                    pReturn = CLng(rd.GetValue(0))
                 End If
                 rd.Close()
                 If pReturn > 0 Then
