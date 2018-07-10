@@ -66,6 +66,7 @@
     <Reference Include="DevExpress.Utils.v18.1" />
     <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v18.1" />
+    <Reference Include="DevExpress.XtraDialogs.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.1" />
     <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -103,7 +104,6 @@
     <Compile Include="CMPartnerAddress.vb" />
     <Compile Include="CMPartnerAttachment.vb" />
     <Compile Include="CMPartnerBusinessType.vb" />
-    <Compile Include="CMPartnerPrefix.vb" />
     <Compile Include="CMPartnerType.vb" />
     <Compile Include="CMPaymentType.vb" />
     <Compile Include="CMRate.vb" />
