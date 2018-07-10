@@ -105,6 +105,8 @@
     <Compile Include="CMPartnerBusinessType.vb" />
     <Compile Include="CMPartnerPrefix.vb" />
     <Compile Include="CMPartnerType.vb" />
+    <Compile Include="CMPaymentType.vb" />
+    <Compile Include="CMRate.vb" />
     <Compile Include="CVender.vb" />
     <Compile Include="FMPartner.Designer.vb">
       <DependentUpon>FMPartner.vb</DependentUpon>
