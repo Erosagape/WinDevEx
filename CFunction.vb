@@ -19,7 +19,7 @@ Public Class CFunction
                     MasterConnection.Close()
                 End If
             End If
-            Dim strConn As String = ConfigurationManager.ConnectionStrings("DevExDemoConn").ConnectionString
+            Dim strConn As String = connetionString
             MasterConnection = New SqlConnection(strConn)
             MasterConnection.Open()
             Return MasterConnection.State = ConnectionState.Open

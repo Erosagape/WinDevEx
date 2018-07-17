@@ -19,7 +19,8 @@ Partial Class FMSupplier
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
+        Dim RadioGroupItem1 As DevExpress.XtraEditors.Controls.RadioGroupItem = New DevExpress.XtraEditors.Controls.RadioGroupItem()
+        Dim RadioGroupItem2 As DevExpress.XtraEditors.Controls.RadioGroupItem = New DevExpress.XtraEditors.Controls.RadioGroupItem()
         Me.GridControl1 = New DevExpress.XtraGrid.GridControl()
         Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.colPARTNER_ID = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -97,7 +98,7 @@ Partial Class FMSupplier
         Me.cboPARTNER_ADDR_PROVINCE = New DevExpress.XtraEditors.LookUpEdit()
         Me.cboPARTNER_ADDRESS_AMPHOE = New DevExpress.XtraEditors.LookUpEdit()
         Me.cboPARTNER_ADDRESS_DISTRICT = New DevExpress.XtraEditors.LookUpEdit()
-        Me.dlg = New DevExpress.XtraEditors.XtraOpenFileDialog(Me.components)
+        Me.dlg1 = New System.Windows.Forms.OpenFileDialog()
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_ID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,7 +123,6 @@ Partial Class FMSupplier
         CType(Me.txtPARTNER_REMARK2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.optFLG.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelControl1.SuspendLayout()
         CType(Me.cboPARTNER_PREFIX.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_NAME3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPARTNER_CODE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -230,7 +230,6 @@ Partial Class FMSupplier
         Me.cmdCancel.LookAndFeel.SkinName = "Office 2010 Blue"
         Me.cmdCancel.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat
         Me.cmdCancel.Name = "cmdCancel"
-        Me.cmdCancel.Size = New System.Drawing.Size(75, 23)
         Me.cmdCancel.TabIndex = 32
         Me.cmdCancel.Text = "ยกเลิก"
         '
@@ -256,13 +255,15 @@ Partial Class FMSupplier
         '
         Me.txtPARTNER_TAX.Location = New System.Drawing.Point(447, 18)
         Me.txtPARTNER_TAX.Name = "txtPARTNER_TAX"
-        Me.txtPARTNER_TAX.Size = New System.Drawing.Size(100, 20)
         Me.txtPARTNER_TAX.TabIndex = 3
         '
         'cboPARTNER_BRANCH
         '
         Me.cboPARTNER_BRANCH.Location = New System.Drawing.Point(96, 44)
         Me.cboPARTNER_BRANCH.Name = "cboPARTNER_BRANCH"
+        '
+        '
+        '
         Me.cboPARTNER_BRANCH.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_BRANCH.Size = New System.Drawing.Size(123, 20)
         Me.cboPARTNER_BRANCH.TabIndex = 5
@@ -278,6 +279,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_SOURCE.Location = New System.Drawing.Point(447, 44)
         Me.cboPARTNER_SOURCE.Name = "cboPARTNER_SOURCE"
+        '
+        '
+        '
         Me.cboPARTNER_SOURCE.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_SOURCE.Size = New System.Drawing.Size(111, 20)
         Me.cboPARTNER_SOURCE.TabIndex = 7
@@ -286,6 +290,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_PAYMENT_CONDITION.Location = New System.Drawing.Point(127, 70)
         Me.cboPARTNER_PAYMENT_CONDITION.Name = "cboPARTNER_PAYMENT_CONDITION"
+        '
+        '
+        '
         Me.cboPARTNER_PAYMENT_CONDITION.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_PAYMENT_CONDITION.Properties.NullText = ""
         Me.cboPARTNER_PAYMENT_CONDITION.Properties.PopupSizeable = False
@@ -628,7 +635,6 @@ Partial Class FMSupplier
         '
         Me.cmdUpdate.Location = New System.Drawing.Point(683, 230)
         Me.cmdUpdate.Name = "cmdUpdate"
-        Me.cmdUpdate.Size = New System.Drawing.Size(75, 23)
         Me.cmdUpdate.TabIndex = 32
         Me.cmdUpdate.Text = "บันทึก"
         '
@@ -654,7 +660,14 @@ Partial Class FMSupplier
         '
         Me.optFLG.Location = New System.Drawing.Point(460, 230)
         Me.optFLG.Name = "optFLG"
-        Me.optFLG.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(0, Short), "Active"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(9, Short), "Cancel")})
+        '
+        '
+        '
+        RadioGroupItem1.Description = "Active"
+        RadioGroupItem1.Value = CType(0, Short)
+        RadioGroupItem2.Description = "Cancel"
+        RadioGroupItem2.Value = CType(9, Short)
+        Me.optFLG.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {RadioGroupItem1, RadioGroupItem2})
         Me.optFLG.Size = New System.Drawing.Size(125, 23)
         Me.optFLG.TabIndex = 31
         '
@@ -662,7 +675,6 @@ Partial Class FMSupplier
         '
         Me.cmdAdd.Location = New System.Drawing.Point(602, 230)
         Me.cmdAdd.Name = "cmdAdd"
-        Me.cmdAdd.Size = New System.Drawing.Size(75, 23)
         Me.cmdAdd.TabIndex = 33
         Me.cmdAdd.Text = "เพิ่ม"
         '
@@ -750,6 +762,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_PREFIX.Location = New System.Drawing.Point(127, 97)
         Me.cboPARTNER_PREFIX.Name = "cboPARTNER_PREFIX"
+        '
+        '
+        '
         Me.cboPARTNER_PREFIX.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_PREFIX.Properties.NullText = ""
         Me.cboPARTNER_PREFIX.Properties.PopupSizeable = False
@@ -793,6 +808,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_BUSINESS_TYPE_ID.Location = New System.Drawing.Point(633, 18)
         Me.cboPARTNER_BUSINESS_TYPE_ID.Name = "cboPARTNER_BUSINESS_TYPE_ID"
+        '
+        '
+        '
         Me.cboPARTNER_BUSINESS_TYPE_ID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_BUSINESS_TYPE_ID.Properties.NullText = ""
         Me.cboPARTNER_BUSINESS_TYPE_ID.Properties.PopupSizeable = False
@@ -804,6 +822,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_COUNTRY_ID.Location = New System.Drawing.Point(633, 44)
         Me.cboPARTNER_COUNTRY_ID.Name = "cboPARTNER_COUNTRY_ID"
+        '
+        '
+        '
         Me.cboPARTNER_COUNTRY_ID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_COUNTRY_ID.Properties.NullText = ""
         Me.cboPARTNER_COUNTRY_ID.Properties.PopupSizeable = False
@@ -815,6 +836,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_CURRATE_ID.Location = New System.Drawing.Point(339, 70)
         Me.cboPARTNER_CURRATE_ID.Name = "cboPARTNER_CURRATE_ID"
+        '
+        '
+        '
         Me.cboPARTNER_CURRATE_ID.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_CURRATE_ID.Properties.NullText = ""
         Me.cboPARTNER_CURRATE_ID.Properties.PopupSizeable = False
@@ -826,6 +850,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_ADDR_PROVINCE.Location = New System.Drawing.Point(634, 123)
         Me.cboPARTNER_ADDR_PROVINCE.Name = "cboPARTNER_ADDR_PROVINCE"
+        '
+        '
+        '
         Me.cboPARTNER_ADDR_PROVINCE.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_ADDR_PROVINCE.Properties.NullText = ""
         Me.cboPARTNER_ADDR_PROVINCE.Properties.PopupSizeable = False
@@ -837,6 +864,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_ADDRESS_AMPHOE.Location = New System.Drawing.Point(94, 149)
         Me.cboPARTNER_ADDRESS_AMPHOE.Name = "cboPARTNER_ADDRESS_AMPHOE"
+        '
+        '
+        '
         Me.cboPARTNER_ADDRESS_AMPHOE.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_ADDRESS_AMPHOE.Properties.NullText = ""
         Me.cboPARTNER_ADDRESS_AMPHOE.Properties.PopupSizeable = False
@@ -848,6 +878,9 @@ Partial Class FMSupplier
         '
         Me.cboPARTNER_ADDRESS_DISTRICT.Location = New System.Drawing.Point(270, 149)
         Me.cboPARTNER_ADDRESS_DISTRICT.Name = "cboPARTNER_ADDRESS_DISTRICT"
+        '
+        '
+        '
         Me.cboPARTNER_ADDRESS_DISTRICT.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.cboPARTNER_ADDRESS_DISTRICT.Properties.NullText = ""
         Me.cboPARTNER_ADDRESS_DISTRICT.Properties.PopupSizeable = False
@@ -855,11 +888,11 @@ Partial Class FMSupplier
         Me.cboPARTNER_ADDRESS_DISTRICT.Size = New System.Drawing.Size(126, 20)
         Me.cboPARTNER_ADDRESS_DISTRICT.TabIndex = 20
         '
-        'dlg
+        'dlg1
         '
-        Me.dlg.FileName = Nothing
+        Me.dlg1.FileName = "dlg"
         '
-        'FMPartner
+        'FMSupplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -869,7 +902,7 @@ Partial Class FMSupplier
         Me.Controls.Add(Me.cmdCancel)
         Me.Controls.Add(Me.GridControl1)
         Me.KeyPreview = True
-        Me.Name = "FMPartner"
+        Me.Name = "FMSupplier"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Master Supplier"
         CType(Me.GridControl1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -896,8 +929,6 @@ Partial Class FMSupplier
         CType(Me.txtPARTNER_REMARK2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.optFLG.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelControl1.ResumeLayout(False)
-        Me.PanelControl1.PerformLayout()
         CType(Me.cboPARTNER_PREFIX.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_NAME3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPARTNER_CODE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -911,30 +942,7 @@ Partial Class FMSupplier
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
-    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents colPARTNER_ID As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPARTNER_CODE As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPARTNER_NAME_1 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPARTNER_CONTACT_1 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPARTNER_CONTACT_2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPARTNER_TAX As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPARTNER_ADDRESS_DOC As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colPhoneNo As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents colMobileNo As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents cmdCancel As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents chkIncludeCancel As CheckBox
-    Friend WithEvents txtPARTNER_ID As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtPARTNER_TAX As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents cboPARTNER_BRANCH As DevExpress.XtraEditors.ComboBoxEdit
-    Friend WithEvents txtPARTNER_BRANCH As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents cboPARTNER_SOURCE As DevExpress.XtraEditors.ComboBoxEdit
-    Friend WithEvents cboPARTNER_PAYMENT_CONDITION As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents txtPARTNER_CREDIT_DAY As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtPARTNER_DEFAULT_VAT_TYPE As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtPARTNER_ATTACHMENT_FILENAME As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents cmdBrowseFile As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
@@ -947,47 +955,70 @@ Partial Class FMSupplier
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents txtPARTNER_NAME1 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label13 As Label
-    Friend WithEvents txtPARTNER_NAME2 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label14 As Label
-    Friend WithEvents txtPARTNER_ADDRESS_DOC As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
-    Friend WithEvents txtPARTNER_ADDRESS_ZIPCODE As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
-    Friend WithEvents txtPARTNER_CONTACT1 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtPARTNER_PHONENO As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label20 As Label
     Friend WithEvents Label21 As Label
-    Friend WithEvents txtPARTNER_EMAIL As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtPARTNER_WEBSITE As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label22 As Label
     Friend WithEvents Label23 As Label
-    Friend WithEvents txtPARTNER_FIRSTCREDITAMOUNT As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label24 As Label
-    Friend WithEvents txtPARTNER_REMARK1 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtPARTNER_REMARK2 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Label25 As Label
-    Friend WithEvents cmdUpdate As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Label26 As Label
     Friend WithEvents Label27 As Label
-    Friend WithEvents optFLG As DevExpress.XtraEditors.RadioGroup
-    Friend WithEvents cmdAdd As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
     Friend WithEvents Label28 As Label
-    Friend WithEvents txtPARTNER_CODE As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents cboPARTNER_BUSINESS_TYPE_ID As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents cboPARTNER_COUNTRY_ID As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents cboPARTNER_CURRATE_ID As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents cboPARTNER_ADDR_PROVINCE As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents cboPARTNER_ADDRESS_AMPHOE As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents cboPARTNER_ADDRESS_DISTRICT As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents Label30 As Label
-    Friend WithEvents cboPARTNER_PREFIX As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents Label29 As Label
-    Friend WithEvents txtPARTNER_NAME3 As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents dlg As DevExpress.XtraEditors.XtraOpenFileDialog
+    Friend WithEvents dlg As DevExpress.XtraEditors.XtraDialog
+    Friend WithEvents dlg1 As System.Windows.Forms.OpenFileDialog
+    Private WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
+    Private WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Private WithEvents colPARTNER_ID As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents colPARTNER_CODE As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents colPARTNER_NAME_1 As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents colPARTNER_CONTACT_1 As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents colPARTNER_CONTACT_2 As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents colPARTNER_TAX As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents colPARTNER_ADDRESS_DOC As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents colPhoneNo As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents colMobileNo As DevExpress.XtraGrid.Columns.GridColumn
+    Private WithEvents cmdCancel As DevExpress.XtraEditors.SimpleButton
+    Private WithEvents txtPARTNER_ID As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_TAX As DevExpress.XtraEditors.TextEdit
+    Private WithEvents cboPARTNER_BRANCH As DevExpress.XtraEditors.ComboBoxEdit
+    Private WithEvents txtPARTNER_BRANCH As DevExpress.XtraEditors.TextEdit
+    Private WithEvents cboPARTNER_SOURCE As DevExpress.XtraEditors.ComboBoxEdit
+    Private WithEvents cboPARTNER_PAYMENT_CONDITION As DevExpress.XtraEditors.LookUpEdit
+    Private WithEvents txtPARTNER_CREDIT_DAY As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_DEFAULT_VAT_TYPE As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_ATTACHMENT_FILENAME As DevExpress.XtraEditors.TextEdit
+    Private WithEvents cmdBrowseFile As DevExpress.XtraEditors.SimpleButton
+    Private WithEvents txtPARTNER_NAME1 As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_NAME2 As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_ADDRESS_DOC As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_ADDRESS_ZIPCODE As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_CONTACT1 As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_PHONENO As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_EMAIL As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_WEBSITE As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_FIRSTCREDITAMOUNT As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_REMARK1 As DevExpress.XtraEditors.TextEdit
+    Private WithEvents txtPARTNER_REMARK2 As DevExpress.XtraEditors.TextEdit
+    Private WithEvents cmdUpdate As DevExpress.XtraEditors.SimpleButton
+    Private WithEvents optFLG As DevExpress.XtraEditors.RadioGroup
+    Private WithEvents cmdAdd As DevExpress.XtraEditors.SimpleButton
+    Private WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Private WithEvents txtPARTNER_CODE As DevExpress.XtraEditors.TextEdit
+    Private WithEvents cboPARTNER_BUSINESS_TYPE_ID As DevExpress.XtraEditors.LookUpEdit
+    Private WithEvents cboPARTNER_COUNTRY_ID As DevExpress.XtraEditors.LookUpEdit
+    Private WithEvents cboPARTNER_CURRATE_ID As DevExpress.XtraEditors.LookUpEdit
+    Private WithEvents cboPARTNER_ADDR_PROVINCE As DevExpress.XtraEditors.LookUpEdit
+    Private WithEvents cboPARTNER_ADDRESS_AMPHOE As DevExpress.XtraEditors.LookUpEdit
+    Private WithEvents cboPARTNER_ADDRESS_DISTRICT As DevExpress.XtraEditors.LookUpEdit
+    Private WithEvents cboPARTNER_PREFIX As DevExpress.XtraEditors.LookUpEdit
+    Private WithEvents txtPARTNER_NAME3 As DevExpress.XtraEditors.TextEdit
 End Class

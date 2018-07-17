@@ -1,8 +1,10 @@
-﻿Imports System.Configuration
+﻿Imports System.ComponentModel
+Imports System.Configuration
+Imports DevExpress.Data
 Imports DevExpress.XtraGrid.Views.Base
 
 Public Class FMSupplier
-    Friend conn As String = ConfigurationManager.ConnectionStrings("JSB_ERPDBConnectionString").ConnectionString
+    Friend conn As String = connetionString
     Private Sub FMPartner_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'JSB_ERPDBDataSet.Tbl_Partner' table. You can move, or remove it, as needed.
         SetDataSource()
@@ -29,6 +31,7 @@ Public Class FMSupplier
     Private Sub SetCboBranch()
         cboPARTNER_BRANCH.Properties.Items.Add("สำนักงานใหญ่")
         cboPARTNER_BRANCH.Properties.Items.Add("สาขา")
+        cboPARTNER_BRANCH.Properties.ValidateOnEnterKey = True
     End Sub
     Private Sub SetCboSource()
         cboPARTNER_SOURCE.Properties.Items.Add("DOMESTIC")
@@ -88,11 +91,6 @@ Public Class FMSupplier
 
     End Sub
 
-    Private Sub cmdBrowseFile_Click(sender As Object, e As EventArgs) Handles cmdBrowseFile.Click
-        If dlg.ShowDialog = DialogResult.OK Then
-            txtPARTNER_ATTACHMENT_FILENAME.Text = New System.IO.FileInfo(dlg.FileName).Name
-        End If
-    End Sub
 
     Private Sub cmdAdd_Click(sender As Object, e As EventArgs) Handles cmdAdd.Click
         NewData()
@@ -101,6 +99,8 @@ Public Class FMSupplier
         Dim ds = New CMPartner(conn)
         Me.txtPARTNER_ID.EditValue = Nothing
         LoadData(ds)
+        Me.txtPARTNER_CODE.Focus()
+        cmdUpdate.Enabled = True
     End Sub
     Private Sub Savedata()
         Try
@@ -114,13 +114,13 @@ Public Class FMSupplier
             data.PARTNER_CODE = Me.txtPARTNER_CODE.EditValue.ToString
             data.PARTNER_TAX = Me.txtPARTNER_TAX.EditValue.ToString
             data.PARTNER_BUSINESS_TYPE_ID = CInt(Me.cboPARTNER_BUSINESS_TYPE_ID.EditValue)
-            data.PARTNER_BRANCH = CInt(txtPARTNER_BRANCH.EditValue)
+            data.PARTNER_BRANCH = CInt(0 & txtPARTNER_BRANCH.EditValue)
             data.PARTNER_SOURCE = Me.cboPARTNER_SOURCE.SelectedIndex
             data.PARTNER_COUNTRY_ID = CInt(Me.cboPARTNER_COUNTRY_ID.EditValue)
             data.PARTNER_PAYTYPE_ID = CInt(Me.cboPARTNER_PAYMENT_CONDITION.EditValue)
             data.PARTNER_CURRATE_ID = CInt(Me.cboPARTNER_CURRATE_ID.EditValue)
-            data.PARTNER_CREDIT_DAYS = CInt(Me.txtPARTNER_CREDIT_DAY.EditValue)
-            data.PARTNER_DEFAULT_VAT_TYPE = CInt(Me.txtPARTNER_DEFAULT_VAT_TYPE.EditValue)
+            data.PARTNER_CREDIT_DAYS = CInt(0 & Me.txtPARTNER_CREDIT_DAY.EditValue)
+            data.PARTNER_DEFAULT_VAT_TYPE = CInt(0 & Me.txtPARTNER_DEFAULT_VAT_TYPE.EditValue)
             data.Partner_Prefix_Id = CInt(Me.cboPARTNER_PREFIX.EditValue)
             data.PARTNER_NAME_1 = Me.txtPARTNER_NAME1.EditValue.ToString()
             data.PARTNER_NAME_2 = Me.txtPARTNER_NAME2.EditValue.ToString()
@@ -130,23 +130,32 @@ Public Class FMSupplier
             data.PhoneNo = Me.txtPARTNER_PHONENO.EditValue.ToString
             data.PARTNER_EMAIL = Me.txtPARTNER_EMAIL.EditValue.ToString
             data.PARTNER_URL = Me.txtPARTNER_WEBSITE.EditValue.ToString
-            data.FirstCreditAmount = CInt(Me.txtPARTNER_FIRSTCREDITAMOUNT.EditValue)
+            data.FirstCreditAmount = CInt(0 & Me.txtPARTNER_FIRSTCREDITAMOUNT.EditValue)
             data.PARTNER_FLG = CInt(Me.optFLG.EditValue)
-            If data.SaveData() Then
-                data.PARTNER_ADDRESS.Address_Name = Me.txtPARTNER_ADDRESS_DOC.EditValue.ToString
-                data.PARTNER_ADDRESS.Address_Province = Me.cboPARTNER_ADDR_PROVINCE.EditValue.ToString
-                data.PARTNER_ADDRESS.Address_Amphoe = Me.cboPARTNER_ADDRESS_AMPHOE.EditValue.ToString
-                data.PARTNER_ADDRESS.Address_District = Me.cboPARTNER_ADDRESS_DISTRICT.EditValue.ToString
-                data.PARTNER_ADDRESS.Address_Zipcode = Me.txtPARTNER_ADDRESS_ZIPCODE.EditValue.ToString
-                data.PARTNER_ADDRESS.Address_Remark1 = Me.txtPARTNER_REMARK1.EditValue.ToString
-                data.PARTNER_ADDRESS.Address_Remark2 = Me.txtPARTNER_REMARK2.EditValue.ToString
-                data.PARTNER_ADDRESS.PARTNER_ID = data.PARTNER_ID
-                data.PARTNER_ADDRESS.SaveData(" WHERE PARTNER_ID=" & data.PARTNER_ID)
-                data.PARTNER_ATTACHMENT.FileName = Me.txtPARTNER_ATTACHMENT_FILENAME.EditValue.ToString
-                data.PARTNER_ATTACHMENT.PARTNER_ID = data.PARTNER_ID
-                data.PARTNER_ATTACHMENT.SaveData(" WHERE PARTNER_ID=" & data.PARTNER_ID)
+            data.UPDATED_BY = TmpUser
+            data.UPDATED_DATE = Today.Date
 
-                MessageBox.Show("Save Complete")
+            data.PARTNER_ADDRESS.Address_Name = Me.txtPARTNER_ADDRESS_DOC.EditValue.ToString
+            data.PARTNER_ADDRESS.Address_Province = Me.cboPARTNER_ADDR_PROVINCE.EditValue.ToString
+            data.PARTNER_ADDRESS.Address_Amphoe = Me.cboPARTNER_ADDRESS_AMPHOE.EditValue.ToString
+            data.PARTNER_ADDRESS.Address_District = Me.cboPARTNER_ADDRESS_DISTRICT.EditValue.ToString
+            data.PARTNER_ADDRESS.Address_Zipcode = Me.txtPARTNER_ADDRESS_ZIPCODE.EditValue.ToString
+            data.PARTNER_ADDRESS.Address_Remark1 = Me.txtPARTNER_REMARK1.EditValue.ToString
+            data.PARTNER_ADDRESS.Address_Remark2 = Me.txtPARTNER_REMARK2.EditValue.ToString
+            data.PARTNER_ADDRESS.PARTNER_ID = data.PARTNER_ID
+            data.PARTNER_ADDRESS.UpdateBy = TmpUser
+            data.PARTNER_ADDRESS.LastUpdate = Today.Date
+            data.PARTNER_ADDRESS.RecordStatus = CInt(Me.optFLG.EditValue)
+
+            data.PARTNER_ATTACHMENT.FileName = Me.txtPARTNER_ATTACHMENT_FILENAME.EditValue.ToString
+            data.PARTNER_ATTACHMENT.PARTNER_ID = data.PARTNER_ID
+            Dim msg As String = data.IsValid
+            If msg <> "" Then
+                MessageBox.Show(msg)
+                Exit Sub
+            End If
+            If data.SaveData() Then
+                MessageBox.Show("Save " & data.PARTNER_ID & " Complete")
                 SetDataSource()
             End If
         Catch ex As Exception
@@ -158,7 +167,7 @@ Public Class FMSupplier
         Me.txtPARTNER_TAX.EditValue = data.PARTNER_TAX.ToString
         Me.cboPARTNER_BUSINESS_TYPE_ID.EditValue = Nothing
         Me.cboPARTNER_BUSINESS_TYPE_ID.EditValue = data.PARTNER_BUSINESS_TYPE_ID
-        Me.cboPARTNER_BRANCH.SelectedIndex = data.PARTNER_BRANCH
+        Me.cboPARTNER_BRANCH.SelectedIndex = CInt(IIf(data.PARTNER_BRANCH = 0, 0, 1))
         Me.txtPARTNER_BRANCH.EditValue = data.PARTNER_BRANCH
         Me.cboPARTNER_SOURCE.SelectedIndex = data.PARTNER_SOURCE
         Me.cboPARTNER_COUNTRY_ID.EditValue = data.PARTNER_COUNTRY_ID
@@ -199,6 +208,7 @@ Public Class FMSupplier
     End Sub
     Private Sub DisplayRow(pIndex As Integer)
         If pIndex >= 0 Then
+            cmdUpdate.Enabled = GridView1.IsRowSelected(pIndex)
             txtPARTNER_ID.EditValue = Nothing
             txtPARTNER_ID.EditValue = GridView1.GetRowCellDisplayText(pIndex, "PARTNER_ID")
         End If
@@ -256,5 +266,107 @@ Public Class FMSupplier
 
     Private Sub cboPARTNER_ADDRESS_DISTRICT_EditValueChanged(sender As Object, e As EventArgs) Handles cboPARTNER_ADDRESS_DISTRICT.EditValueChanged
 
+    End Sub
+
+    Private Sub cmdBrowseFile_Click(sender As Object, e As EventArgs) Handles cmdBrowseFile.Click
+        If dlg1.ShowDialog = DialogResult.OK Then
+            txtPARTNER_ATTACHMENT_FILENAME.Text = New System.IO.FileInfo(dlg1.FileName).Name
+        End If
+    End Sub
+
+    Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+        If GridView1.SelectedRowsCount > 0 Then
+            Dim i As Integer = 0
+            For Each r As Integer In GridView1.GetSelectedRows
+                Dim id As String = GridView1.GetRowCellDisplayText(r, "PARTNER_ID")
+                If id <> "" Then
+                    Dim data As CMPartner = New CMPartner(conn).GetData(" WHERE PARTNER_ID=" & id).FirstOrDefault
+                    If data.PARTNER_ID > 0 Then
+                        data.PARTNER_FLG = 9
+                        If data.SaveData() = False Then
+                            MessageBox.Show("ID " & id & " Cannot Cancel")
+                        Else
+                            i += 1
+                        End If
+                    End If
+                End If
+            Next r
+            If i > 0 Then
+                MessageBox.Show("Cancel Complete!")
+            End If
+            SetDataSource()
+        End If
+    End Sub
+
+    Private Sub cboPARTNER_BRANCH_Validating(sender As Object, e As CancelEventArgs) Handles cboPARTNER_BRANCH.Validating
+        If cboPARTNER_BRANCH.SelectedIndex < 0 Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub cboPARTNER_SOURCE_Validating(sender As Object, e As CancelEventArgs) Handles cboPARTNER_SOURCE.Validating
+        If cboPARTNER_SOURCE.SelectedIndex < 0 Then
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub txtPARTNER_FIRSTCREDITAMOUNT_Validating(sender As Object, e As CancelEventArgs) Handles txtPARTNER_FIRSTCREDITAMOUNT.Validating
+        If IsNumeric(txtPARTNER_FIRSTCREDITAMOUNT.EditValue) = False Then
+            e.Cancel = True
+        Else
+            Try
+                Dim v As Integer = CInt(txtPARTNER_FIRSTCREDITAMOUNT.EditValue)
+            Catch ex As Exception
+                e.Cancel = True
+            End Try
+        End If
+    End Sub
+
+    Private Sub txtPARTNER_CREDIT_DAY_Validating(sender As Object, e As CancelEventArgs) Handles txtPARTNER_CREDIT_DAY.Validating
+        If IsNumeric(txtPARTNER_CREDIT_DAY.EditValue) = False Then
+            e.Cancel = True
+        Else
+            Try
+                Dim v As Integer = CInt(txtPARTNER_CREDIT_DAY.EditValue)
+            Catch ex As Exception
+                e.Cancel = True
+            End Try
+        End If
+    End Sub
+
+    Private Sub txtPARTNER_DEFAULT_VAT_TYPE_Validating(sender As Object, e As CancelEventArgs) Handles txtPARTNER_DEFAULT_VAT_TYPE.Validating
+        If IsNumeric(txtPARTNER_DEFAULT_VAT_TYPE.EditValue) = False Then
+            e.Cancel = True
+        Else
+            Try
+                Dim v As Integer = CInt(txtPARTNER_DEFAULT_VAT_TYPE.EditValue)
+            Catch ex As Exception
+                e.Cancel = True
+            End Try
+        End If
+    End Sub
+
+    Private Sub txtPARTNER_BRANCH_Validating(sender As Object, e As CancelEventArgs) Handles txtPARTNER_BRANCH.Validating
+        If IsNumeric(txtPARTNER_BRANCH.EditValue) = False Then
+            e.Cancel = True
+        Else
+            Try
+                Dim v As Integer = CInt(txtPARTNER_BRANCH.EditValue)
+            Catch ex As Exception
+                e.Cancel = True
+            End Try
+        End If
+    End Sub
+
+    Private Sub GridView1_CellValueChanged(sender As Object, e As CellValueChangedEventArgs) Handles GridView1.CellValueChanged
+
+    End Sub
+
+    Private Sub GridView1_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles GridView1.SelectionChanged
+        If e.Action = CollectionChangeAction.Add Then
+            cmdUpdate.Enabled = True
+        ElseIf e.Action = CollectionChangeAction.Remove Then
+            cmdUpdate.Enabled = False
+        End If
     End Sub
 End Class

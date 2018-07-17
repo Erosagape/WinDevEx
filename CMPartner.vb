@@ -497,6 +497,8 @@ ReQuery:
                             If dr.RowState = DataRowState.Detached Then dt.Rows.Add(dr)
                             Try
                                 If da.Update(dt) > 0 Then
+                                    Me.PARTNER_ADDRESS.SaveData(" WHERE PARTNER_ID=" & Me.PARTNER_ID)
+                                    Me.PARTNER_ATTACHMENT.SaveData(" WHERE PARTNER_ID=" & Me.PARTNER_ID)
                                     bComplete = True
                                 End If
 
@@ -709,6 +711,106 @@ ReQuery:
         m_PhoneNo = ""
         m_SaleCondition = ""
         m_UPDATED_BY = ""
-        m_UPDATED_DATE = Date.MinValue
+        m_UPDATED_DATE = DateTime.MinValue
     End Sub
+    Function IsValid() As String
+        Dim msg As String = ""
+        Try
+            Using cn As New SqlConnection(m_ConnStr)
+                cn.Open()
+
+                Using rd As SqlDataReader = New SqlCommand("sp_columns 'tbl_partner'", cn).ExecuteReader
+                    While rd.Read
+                        Select Case rd("COLUMN_NAME").ToString()
+                            Case "PARTNER_ID"
+                                If m_PARTNER_ID.ToString.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_ID ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                            Case "PARTNER_CODE"
+                                If m_PARTNER_CODE.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_CODE ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                        'Case "PARTNER_TYPE_ID"
+                        'Case "Partner_Prefix_Id"
+                            Case "PARTNER_NAME_1"
+                                If m_PARTNER_NAME_1.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_NAME_1 ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                            Case "PARTNER_NAME_2"
+                                If m_PARTNER_NAME_2.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_NAME_2 ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                            Case "PARTNER_NAME_3"
+                                If m_PARTNER_NAME_3.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_NAME_3 ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                        'Case "PARTNER_BUSINESS_TYPE_ID"
+                        'Case "PARTNER_INFORMATION"
+                            Case "PARTNER_CONTACT_1"
+                                If m_PARTNER_CONTACT_1.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_CONTACT_1 ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                        'Case "PARTNER_CONTACT_2"
+                            Case "PARTNER_TAX"
+                                If m_PARTNER_TAX.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_TAX ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                        'Case "PARTNER_SOURCE"
+                        'Case "PARTNER_DEFAULT_CREDIT"
+                        'Case "PARTNER_DEFAULT_VAT_TYPE"
+                        ''Case "PARTNER_BRANCH"
+                        'Case "PARTNER_AC_CODE_NO"
+                            Case "PARTNER_ADDRESS_DOC"
+                                If m_PARTNER_ADDRESS_DOC.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_ADDRESS_DOC ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                        'Case "PARTNER_REGIS_DATE"
+                        'Case "PARTNER_REGIS_BY"
+                        'Case "PARTNER_PROFILE_PIC"
+                            Case "PhoneNo"
+                                If m_PhoneNo.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PhoneNo ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                            Case "MobileNo"
+                                If m_MobileNo.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "MobileNo ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                        'Case "Attach_Pic1"
+                        'Case "Attach_Pic2"
+                        'Case "Attach_Pic3"
+                        'Case "Attach_Pic4"
+                        'Case "Attach_Pic5"
+                        'Case "Attach_Pic6"
+                        'Case "PartnerApproveBy"
+                        'Case "PartnerApproveDate"
+                        'Case "FirstCreditAmount"
+                        'Case "SaleCondition"
+                        'Case "PaymentChannel"
+                        'Case "UPDATED_BY"
+                        'Case "UPDATED_DATE"
+                        'Case "PARTNER_FLG"
+                        'Case "PARTNER_COUNTRY_ID"
+                        'Case "PARTNER_CURRATE_ID"
+                        'Case "PARTNER_PAYTYPE_ID"
+                        'Case "PARTNER_CREDIT_DAYS"
+                            Case "PARTNER_URL"
+                                If m_PARTNER_URL.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_URL ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                            Case "PARTNER_EMAIL"
+                                If m_PARTNER_EMAIL.Length > CInt(rd("PRECISION")) Then
+                                    msg &= "PARTNER_EMAIL ระบุได้แค่ " & CInt(rd("PRECISION")) & " ตัวอักษร" & vbCrLf
+                                End If
+                                'Case "CreditLimit"
+                        End Select
+                    End While
+                End Using
+            End Using
+            msg &= m_PARTNER_ADDRESS.IsValid
+            msg &= m_PARTNER_ATTACHMENT.IsValid
+        Catch ex As Exception
+            msg = ex.Message
+        End Try
+        Return msg
+    End Function
 End Class
